@@ -11,11 +11,11 @@ import Video from "../components/Video/Video";
 import getSeason from "../helper/getSeason";
 
 const Season5 = () => {
-  const [season, setSeason] = useState([]);
+  const [episodes, setEpisodes] = useState([]);
   useEffect(() => {
     const fetchSeason = async () => {
       const fifthSeason = await getSeason("5");
-      setSeason(fifthSeason);
+      setEpisodes(fifthSeason);
     };
     fetchSeason();
   }, []);
@@ -33,14 +33,14 @@ const Season5 = () => {
         <HeaderWarning>+18</HeaderWarning>
       </HeaderWrapper>
       <Content>
-        {season.map((Season) => (
+        {episodes.map((Episode) => (
           <Card
-            key={Season.episode_id}
-            season={Season.season}
-            episode={Season.episode}
-            title={Season.title}
-            date={Season.air_date}
-            characters={Season.characters.map((character) => character)}
+            key={Episode.episode_id}
+            season={Episode.season}
+            episode={Episode.episode}
+            title={Episode.title}
+            date={Episode.air_date}
+            characters={Episode.characters.map((character) => character)}
           />
         ))}
       </Content>
